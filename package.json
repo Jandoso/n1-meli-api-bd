@@ -1,7 +1,7 @@
 {
   "name": "n1-kelly-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para as aulas de BackEnd da Reprograma",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,9 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.7.10"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jandoso/n1-meli-api-bd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jandoso/n1-meli-api-bd/issues"
+  },
+  "homepage": "https://github.com/Jandoso/n1-meli-api-bd#readme"
 }
