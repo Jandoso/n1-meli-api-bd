@@ -13,6 +13,8 @@ const AlunasSchema = new mongoose.Schema({
         titulo: String,
         leu: String,
     }]
+}, {
+    versionKey: false
 })
 
 
