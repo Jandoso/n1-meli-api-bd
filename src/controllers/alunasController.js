@@ -173,7 +173,7 @@ exports.postBooks = (req, res) => {
   };
 
   exports.deletarAluna = (req, res) => {
-    const idAluna = req.param.id;
+    const idAluna = req.params.id;
 
     Alunas.findById(idAluna, function (err, aluna){
       if(err) return res.status(500).send(err);
