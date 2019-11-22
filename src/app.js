@@ -1,6 +1,10 @@
 const express = require("express")
+<<<<<<< HEAD
 const app = express();
 const mongoose = require('mongoose');
+=======
+const mongoose = require("mongoose")
+>>>>>>> b7dedaf6c2c1f30c75e5032b470ba07493734053
 const bodyParser = require('body-parser');
 
 mongoose.connect("mongodb://localhost:27017/reprograma", { useNewUrlParser: true, useUnifiedTopology: true });
@@ -15,7 +19,11 @@ db.once("open", function (){
 //porta padrão do mongo: 27017
 //banco de dados utilizado: reprograma
 
+<<<<<<< HEAD
 //mongoose.connect("mongodb://localhost:27017/reprograma",  { useNewUrlParser: true });
+=======
+mongoose.connect("mongodb://admin:reprograma1@ds225902.mlab.com:25902/reprogramameli",  { useNewUrlParser: true });
+>>>>>>> b7dedaf6c2c1f30c75e5032b470ba07493734053
 
 //representação da conexão com o banco de dados 
 //let db = mongoose.connection;
@@ -33,8 +41,11 @@ const index = require("./routes/index")
 const alunas = require("./routes/alunasRoute")
 const professoras = require("./routes/professorasRoute")
 
+<<<<<<< HEAD
 // app.use(express.json());
 
+=======
+>>>>>>> b7dedaf6c2c1f30c75e5032b470ba07493734053
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header(

@@ -3,10 +3,10 @@ const Alunas = require('../model/alunas');
 const fs = require('fs');
 
 exports.get = (req, res) => {
-    Alunas.find(function (err, alunas) {
-      if (err) res.status(500).send(err);
-      res.status(200).send(alunas);
-})
+  Alunas.find(function (err, alunas) {
+    if (err) res.status(500).send(err);
+    res.status(200).send(alunas);
+  })
 }
 
 exports.getById = (req, res) => {
@@ -156,3 +156,36 @@ exports.postBooks = (req, res) => {
   // });
 
   // res.status(201).send(alunas[aluna.id - 1].livros);
+
+  exports.update = (req, res) => {
+
+    if(!validaFormulario(req.body)) return res.status(400).send({ message: "Campos inválidos" });
+
+    Alunas.update(
+      { _id: req.params.id },
+      { $set: req.body },
+      { upsert: true },
+      function (err) {
+        if (err) return res.status(500).send(err);
+        res.status(200).send({ message: "Atualizado com sucesso!" });
+      }
+    );
+  };
+
+  exports.deletarAluna = (req, res) => {
+    const idAluna = req.param.id;
+
+    Alunas.findById(idAluna, function (err, aluna){
+      if(err) return res.status(500).send(err);
+
+      if(!aluna) {
+        return res.status(200).send({ message: `Infelizmente não pudemos localizar a Aluna com id ${idAluna}` });
+      }
+      
+      aluna.remove(function (err){
+        if(!err) {
+          res.status(204).send({ message: "Aluna removida com sucesso!" });
+        }
+      })
+    });
+  };
